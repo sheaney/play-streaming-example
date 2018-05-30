@@ -1,0 +1,11 @@
+const http = require('http');
+
+let boundedEndpoint = "http://localhost:9000/stream"
+http.get(boundedEndpoint, (resp) => {
+  resp.on('data', (chunk) => {
+    console.log("......");
+    let obj = JSON.parse(chunk);
+    console.log("Parsed chunk: ");
+    console.log(obj);
+  });
+});
